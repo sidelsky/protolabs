@@ -1,1 +1,66 @@
 // Add your settings here
+
+/**
+ * Colours
+ */
+ $black: #000000;
+ $white: #ffffff;
+ $blue: #429dc9;
+ $green: #84bd00;
+ $dark-grey: #343741;
+ $light-grey: #e5e7e5;
+ $orange: #f57828;
+
+ .bg--blue {
+   background-color: $blue;
+ }
+
+ .bg--grey {
+   background-color: $dark-grey;
+ }
+
+ .bg--green {
+   background-color: $green;
+ }
+
+ .bg--orange {
+   background-color: $orange;
+ }
+
+
+
+
+/**
+ * Spacing
+ */
+$spacing--x-tiny: .5rem;
+$spacing--tiny: 1rem;
+$spacing--x-small: 1.5rem;
+$spacing--small: 2rem;
+$spacing--x-medium: 2.5rem;
+$spacing--medium: 3rem;
+$spacing--x-large: 3.5rem;
+$spacing--large: 4rem;
+$spacing--large-x: 5rem;
+$spacing--large-xx: 6rem;
+$spacing--large-xxx: 7rem;
+$spacing--large-xxxx: 8rem;
+$spacing--large-xxxxx: 9rem;
+$spacing--jumbo: 10rem;
+
+
+$font-name: 'pf-square-sans-pro';
+$file-path: '../fonts/#{$font-name}/';
+
+@include web-font('#{$font-name}-light', '#{$file-path}', '#{$font-name}-light');
+@include web-font('#{$font-name}-regular', '#{$file-path}', '#{$font-name}-regular');
+@include web-font('#{$font-name}-medium', '#{$file-path}', '#{$font-name}-medium');
+
+
+//Font faces
+$font-primary--light: '#{$font-name}-light', Helvetica, Arial, sans-serif;
+$font-primary--regular: '#{$font-name}-regular', Helvetica, Arial, sans-serif;
+$font-primary--medium: '#{$font-name}-medium', Helvetica, Arial, sans-serif;
+
+//@include font-face($style-name, $file, $family);
+

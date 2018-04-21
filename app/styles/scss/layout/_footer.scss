@@ -1,0 +1,84 @@
+.footer-margin {
+    background-color: #FFFFFF;
+    overflow: hidden;
+
+
+    @include media('>desktop') {
+
+        width: 100%;
+        min-width: 320px;
+        height: auto;
+        display: block;
+        position: relative;
+        z-index: 10;
+        margin: 0px;
+        padding: 0px;
+        margin-bottom: 420px;
+
+    }
+}
+
+.the-footer {
+
+    @include media('>desktop') {
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+    }
+}
+
+
+.grey__container {
+   background-color: $dark-grey;
+   padding: $spacing--jumbo 0;
+}
+
+.footer {
+   lost-flex-container: row;
+   color: $white;
+
+   &__column {
+      lost-column: 1/1;
+
+      @include media(">tablet") {
+         lost-column: 1/2;
+     }
+
+     p {
+         @include set-font-size(1.6rem, 1.6rem, 1.6rem);
+      }
+
+   }
+
+}
+
+
+
+.footer__links {
+   padding-top: $spacing--large;
+   color: $blue;
+   @include set-font-size(1.6rem, 1.6rem, 1.6rem);
+
+   @include media('>tablet') {
+      margin: 0;
+   }
+
+   a {
+      text-decoration: none;
+      color: currentColor;
+   }
+}
+
+.icon-mark {
+   $dimensions: 106px;
+   width: $dimensions;
+   height: $dimensions;
+   margin-top: $spacing--large;
+   
+   @include media('>tablet') {
+      float: right;
+      margin-top: 0;
+   }
+
+
+}

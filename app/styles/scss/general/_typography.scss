@@ -1,0 +1,131 @@
+h1,
+h2,
+h3,
+h4 {
+  font-weight: normal;
+  //margin-bottom: $margin-default / 2; 
+}
+
+p,
+li {
+  @include set-font-size(1.8rem, 1.8rem, 2.4rem);
+}
+
+p {
+  margin-bottom: 1em;
+
+  &:last-of-type { 
+    margin-bottom: 0;
+  }
+  
+}
+
+h1 {
+  @include set-font-size(3.6rem, 4.2rem, 4.8rem);
+  line-height: 1.25;
+}
+
+h2 {
+  @include set-font-size(3rem, 4rem, 5rem);
+}
+
+h3 {
+  @include set-font-size(2rem, 2.5rem, 3rem);
+}
+
+h4 {
+  @include set-font-size(2rem, 2rem, 2rem);
+}
+
+blockquote {
+  @include set-font-size(2.4rem, 2.8rem, 3.2rem);
+  margin: 0;
+  color: $white;
+  position: relative;
+  overflow: visible;
+
+    &::before {
+      content: "";
+      display: block;
+      height: 8px;
+      width: 116px;
+      background-color: #429dc9;
+      margin-bottom: 40px;
+    }
+
+    
+  
+
+  .line {
+    display: block;
+    position: relative;
+
+    &::before {
+      content: '"';
+      display: block;
+      position: absolute;
+      top: 0px;
+      left: -$spacing--small;
+      font-size: 40px;
+    }
+
+  }
+
+  cite {
+    color: #429dc9;
+    padding-top: $spacing--large;
+    display: block;
+    font-style: normal;
+  }
+
+}
+
+.bq {
+  &--blue {
+    &::before {
+      background-color: $blue;
+    }
+  }
+  &--green {
+    &::before {
+      background-color: $green;
+    }
+  }
+  &--orange {
+    &::before {
+      background-color: $orange;
+    }
+  }
+}
+
+.quote-mark {
+  font-size: 40px;
+  display: inline;
+  top: 8px;
+  position: relative;
+}
+
+.cite {
+  &--blue {
+    color: $blue;
+  }
+  &--green {
+    color: $green;
+  }
+  &--orange {
+    color: $orange;
+  }
+}
+
+
+.line {
+  &--blue {
+    color: $blue;
+  }
+  &--green {
+    color: $green;
+  }
+  &--orange {
+    color: $orange;
+  }
+}

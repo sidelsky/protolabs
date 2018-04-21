@@ -1,11 +1,24 @@
 //misc settings
-@import 'config/_settings';
+@import 'config/_icon';
 @import 'config/_mixins';
+@import 'config/_settings';
 
-//frameworks
+//vendor
+@import 'vendor/_include-media';
+@import 'vendor/_slick-theme';
+@import 'vendor/_slick';
+@import 'vendor/v-remodal-default-theme';
+@import 'vendor/v-remodal';
 
 //global things
 @import 'general/_reset';
+@import 'general/_typography'; 
+
 @import 'layout/_main';
+@import 'layout/_sections';
+@import 'layout/_video';
+@import 'layout/_services';
+@import 'layout/_footer';
+@import 'layout/_slider'; 
 
 //pages

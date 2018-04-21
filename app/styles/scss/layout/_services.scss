@@ -1,0 +1,39 @@
+.services {
+   text-align: center;
+   padding: $spacing--jumbo 0;
+
+   &__title {
+      color: $blue;
+   }
+
+   .icon {
+      $dimensions: 100px;
+      height: $dimensions;
+      width: $dimensions;
+      margin: $spacing--large-x 0 $spacing--x-medium 0;
+   }
+
+   p {
+      margin: 0 auto $spacing--large-xx;
+      
+      @include media('>tablet') {
+         max-width: 50%;
+      }
+   }
+
+}
+
+.button {
+   display: inline-block;
+   background-color: $green;
+   border-radius: 10px;
+   color: $white;
+   padding: 0 $spacing--small;
+   text-decoration: none;
+   @include set-font-size(1.8rem, 1.8rem, 2.4rem);
+   line-height: 2.4;
+}
+
+.services__title--gird-item {
+   margin: 0 0 $spacing--small;
+}

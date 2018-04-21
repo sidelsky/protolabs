@@ -1,0 +1,195 @@
+
+.video-b {
+    display: none;
+}
+
+
+.main-logo {
+    display: block;
+    visibility: visible;
+    
+    @include media('<desktop') {
+        margin-bottom: 20px;
+        width: 100%;
+        text-align: center;
+        position: relative;
+        z-index: 1000;
+
+        svg {
+            width: 190px;
+            height: 90px;
+        }
+
+
+    }
+}
+
+
+
+body.active {
+
+    .main-logo {
+        display: none;
+        visibility: hidden;
+    }
+
+    .hero {
+        display: none;
+    }
+
+    .video-b {
+        display: block;
+    }
+
+    .video-a {
+        display: none;
+    }
+
+}
+
+
+.video-wrapper {
+    height: 73vh;
+    position: relative;
+    
+}
+
+
+.video-background {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    // min-width: 100%;
+    // min-height: 100%;
+    // width: auto;
+    // height: auto;
+    // z-index: -100;
+    // background-size: cover;
+}
+
+
+@include media('>desktop') {
+
+    .video-wrapper {
+        height: 73vh;
+        position: relative;
+        
+    }
+    
+    
+    .video-background {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -100;
+        background-size: cover;
+    }
+
+}
+
+
+
+.video-background--main {
+    // position: absolute;
+    // top: 0;
+    // right: 0;
+    // bottom: 0;
+    // min-width: 100%;
+    // min-height: 100%;
+    width: 100%;
+    height: auto;
+    z-index: -100;
+
+ 
+
+
+}
+
+
+.close-icon {
+    mix-blend-mode: difference;
+    color: #fff;
+    z-index: 100;
+    position: absolute;
+    right: $spacing--x-medium;
+    top: $spacing--x-medium;
+    font-size: 24px;
+
+}
+
+
+
+.hero__actions {
+    @include set-font-size(6rem, 7rem, 9rem);
+    height: 130px;
+}
+
+.hero .icon .icon__fill {
+    fill: #ffffff;
+}
+
+.hero .icon .icon__stroke {
+    stroke: #ffffff;
+}
+
+.hero__actions .icon--play .icon__fill {
+    transform: scale(1.5);
+    transform-origin: center;
+    transition: transform 400ms;
+}
+
+.hero__actions .icon--play .icon__stroke {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 400ms;
+}
+
+.hero__actions a:hover .icon--play .icon__fill {
+    transform: scale(2);
+}
+
+.hero__actions a:hover .icon--play .icon__stroke {
+    stroke-dashoffset: 1000;
+}
+
+.play-title {
+    @include set-font-size(1.2rem, 1.8rem, 2.4rem);
+    line-height: 0;
+    display: block;
+}
+
+.scroll {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    @include set-font-size(1.6rem, 1.6rem, 1.6rem);
+    color: $white;
+    text-decoration: none;
+    display: block;
+
+    span {
+        display: block;
+    }
+
+    svg {
+        @include set-font-size(3.6rem, 3.6rem, 3.6rem);
+    }
+}
+
+.video-icons {
+    display: block;
+	 margin: 0 auto;
+     width: 160px;
+     
+     @include media('<tablet') {
+         margin-bottom: 60px;
+     }
+     
+}

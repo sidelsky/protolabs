@@ -20,6 +20,11 @@ var app,
     sourceMaps,
     postcss,
     lost,
+    svgstore,
+    svgmin,
+    cheerio,
+    rename,
+    fs,
     plumber;
 
 var autoPrefixBrowserList = [
@@ -39,6 +44,7 @@ gutil = require("gulp-util");
 concat = require("gulp-concat");
 uglify = require("gulp-uglify");
 sass = require("gulp-sass");
+rename = require("gulp-rename");
 sourceMaps = require("gulp-sourcemaps");
 imagemin = require("gulp-imagemin");
 minifyCSS = require("gulp-minify-css");
@@ -48,7 +54,30 @@ autoprefixer = require("gulp-autoprefixer");
 gulpSequence = require("gulp-sequence").use(gulp);
 shell = require("gulp-shell");
 plumber = require("gulp-plumber");
+svgstore = require("gulp-svgstore");
+cheerio = require("gulp-cheerio");
+svgmin = require("gulp-svgmin");
+fs = require("fs");
 lost = require("lost");
+
+//SVG Sprite
+gulp.task("svgSprite", function() {
+    return gulp
+        .src("app/svg/**/*")
+        .pipe(svgmin())
+        .pipe(rename({ prefix: "shape-" }))
+        .pipe(svgstore({ inlineSvg: true }))
+        .pipe(
+            cheerio({
+                run: function($, file) {
+                    $("svg").attr("style", "display:none");
+                },
+                parserOptions: { xmlMode: true }
+            })
+        )
+        .pipe(rename("svg-sprite.svg"))
+        .pipe(gulp.dest("app/svg"));
+});
 
 gulp.task("browserSync", function() {
     browserSync({
@@ -254,6 +283,7 @@ gulp.task("scaffold", function() {
         "mkdir dist",
         "mkdir dist/fonts",
         "mkdir dist/images",
+        "mkdir dist/svg",
         "mkdir dist/scripts",
         "mkdir dist/styles"
     ]);
@@ -265,13 +295,18 @@ gulp.task("scaffold", function() {
 //  startup the web server,
 //  start up browserSync
 //  compress all scripts and SCSS files
-gulp.task("default", ["browserSync", "scripts", "styles"], function() {
-    //a list of watchers, so it will watch all of the following files waiting for changes
-    gulp.watch("app/scripts/src/**", ["scripts"]);
-    gulp.watch("app/styles/scss/**", ["styles"]);
-    gulp.watch("app/images/**", ["images"]);
-    gulp.watch("app/*.html", ["html"]);
-});
+gulp.task(
+    "default",
+    ["browserSync", "scripts", "styles", "svgSprite"],
+    function() {
+        //a list of watchers, so it will watch all of the following files waiting for changes
+        gulp.watch("app/scripts/src/**", ["scripts"]);
+        gulp.watch("app/styles/scss/**", ["styles"]);
+        gulp.watch("app/images/**", ["images"]);
+        gulp.watch("app/svg/**", ["svgSprite"]);
+        gulp.watch("app/*.html", ["html"]);
+    }
+);
 
 //this is our deployment task, it will set everything for deployment-ready files
 gulp.task(
